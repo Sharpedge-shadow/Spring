@@ -1,8 +1,6 @@
 package com.example.main;
 
-import com.example.beans.Person;
-import com.example.beans.Vehicle;
-import com.example.beans.Vehicle1;
+import com.example.beans.*;
 import com.example.config.ProjectConfig;
 import com.example.config.ProjectConfigUsingComponent;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
@@ -95,12 +93,36 @@ public class Example1 {
 
 
         //Wiring
-        var context =  new AnnotationConfigApplicationContext(ProjectConfig.class);
+//        var context =  new AnnotationConfigApplicationContext(ProjectConfig.class);
+//        Vehicle vehicle = context.getBean(Vehicle.class);
+//        Person person = context.getBean(Person.class);
+//        System.out.println("Vehicle name from spring context is: "+vehicle.getName());
+//        System.out.println("Person name from spring context is: "+person.getName());
+//        System.out.println("Vehicle that person own is:"+person.getVehicle());
+
+
+        //using AutoWired Annotation on Member variable
+//        var context =  new AnnotationConfigApplicationContext(ProjectConfigUsingComponent.class);
+//        Vehicle vehicle = context.getBean(Vehicle.class);
+//        Person person = context.getBean(Person.class);
+//        System.out.println("Vehicle name from spring context is: "+vehicle.getName());
+//        System.out.println("Person name from spring context is: "+person.getName());
+//        System.out.println("Vehicle that person own is:"+person.getVehicle());
+
+        //using Autowired Annotation on Setter Method
+//        var context =  new AnnotationConfigApplicationContext(ProjectConfigUsingComponent.class);
+//        Vehicle vehicle = context.getBean(Vehicle.class);
+//        PersonAutowiredOnSetterMethod person = context.getBean(PersonAutowiredOnSetterMethod.class);
+//        System.out.println("Vehicle name from spring context is: "+vehicle.getName());
+//        System.out.println("Person name from spring context is: "+person.getName());
+//        System.out.println("Vehicle that person own is:"+person.getVehicle());
+
+        //using Autowired Annotation on Constructor (Recommended)
+        var context =  new AnnotationConfigApplicationContext(ProjectConfigUsingComponent.class);
         Vehicle vehicle = context.getBean(Vehicle.class);
-        Person person = context.getBean(Person.class);
+        PersonAutowiredOnConstructor person = context.getBean(PersonAutowiredOnConstructor.class);
         System.out.println("Vehicle name from spring context is: "+vehicle.getName());
         System.out.println("Person name from spring context is: "+person.getName());
         System.out.println("Vehicle that person own is:"+person.getVehicle());
-
     }
 }

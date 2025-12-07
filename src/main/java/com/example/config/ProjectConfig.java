@@ -48,4 +48,14 @@ public class ProjectConfig {
         person.setVehicle(vehicle());
         return person;
     }
+
+    //wiring using method parameter
+    @Primary
+    @Bean
+    public Person person2(Vehicle vehicle){
+        Person person = new Person();
+        person.setName("JohnCena");
+        person.setVehicle(vehicle);
+        return person;
+    }
 }

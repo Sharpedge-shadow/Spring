@@ -11,6 +11,7 @@ public class Vehicle {
 
     public Vehicle() {
         System.out.println("Vehicle Created");
+        this.name = "New Mercedes Benz";
     }
 
     @Override
@@ -26,16 +27,16 @@ public class Vehicle {
         this.name = name;
     }
 
-    @PostConstruct
-    public void initialise(){
-        this.name="Range Rover";
-    }
+//    @PostConstruct
+//    public void initialise(){
+//        this.name="Range Rover";
+//    }
 
-    @PreDestroy
-    public void destroy(){
-        System.out.println("As context is close ,Destroyed "+this.name+" Bean");
-        this.name=null;
-    }
+//    @PreDestroy
+//    public void destroy(){
+//        System.out.println("As context is close ,Destroyed "+this.name+" Bean");
+//        this.name=null;
+//    }
 
     public void printHello(){
         System.out.println("Hello using component annotation");
