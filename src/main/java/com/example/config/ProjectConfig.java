@@ -1,5 +1,6 @@
 package com.example.config;
 
+import com.example.beans.Person;
 import com.example.beans.Vehicle;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,7 +19,7 @@ public class ProjectConfig {
     @Bean(value="RangeRoverValueBeanVehicle")
     Vehicle vehicle2(){
         var vehicle = new Vehicle();
-        vehicle.setName("Ferari");
+        vehicle.setName("Ferrari");
         return vehicle;
     }
     //for custom naming of the Bean there are three approaches name, value , or default parameter
@@ -38,5 +39,13 @@ public class ProjectConfig {
     @Bean
     Integer number(){
         return 16;
+    }
+
+    @Bean
+    public Person person(){
+        Person person = new Person();
+        person.setName("John");
+        person.setVehicle(vehicle());
+        return person;
     }
 }
